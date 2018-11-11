@@ -28,6 +28,7 @@ from nsepy import get_index_pe_history;
 from datetime import date, timedelta;
 from datetime import datetime as t;
 from matplotlib import pyplot;
+import os
 
 def get_LATEST_MARKET_OPEN_DATE():
     if (date.today().weekday() == 6):
@@ -62,18 +63,18 @@ print ("PE, PB and Dividend Yield ratio of NIFTY SMALLCAP 100 is ",PE('NIFTY SMA
 
 
 # HISTORICAL PE, PB and DIV of INDEX1
-index='NIFTY AUTO'
-years=5
+index='NIFTY'
+years=10
 Date,PE,PB,Div = PE_list(index,get_LATEST_MARKET_OPEN_DATE(),years);
 
 # HISTORICAL PE, PB and DIV of INDEX2
-index2='NIFTY BANK'
-years2=5
+index2='NIFTY MIDCAP 50'
+years2=10
 Date2,PE_MID,PB2,DIV2 = PE_list(index2,get_LATEST_MARKET_OPEN_DATE(),years2);
 
 # HISTORICAL PE, PB and DIV of INDEX3
-index3='NIFTY PHARMA'
-years3=5
+index3='NIFTY SMALLCAP 100'
+years3=10
 Date3,PE_SMALL,PB3,DIV3 = PE_list(index3,get_LATEST_MARKET_OPEN_DATE(),years3);
 
 #Plotting
@@ -99,7 +100,8 @@ pyplot.ylabel('Dividend Yield %');
 pyplot.title('Last %i Year Chart of Dividend Yield of %s' %(years,index));
 pyplot.text(Date[-1],Div[-1],Div[-1])
 pyplot.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=0.52)
-pyplot.savefig('fig/Index1.png')
+if os.path.exists("fig"):
+	pyplot.savefig('fig/%s.png' %index)
 
 f2 = pyplot.figure(2)
 pyplot.subplot(3, 1, 1)
@@ -123,7 +125,8 @@ pyplot.ylabel('Dividend Yield %');
 pyplot.title('Last %i Year Chart of Dividend Yield of %s' %(years2,index2));
 pyplot.text(Date2[-1],DIV2[-1],DIV2[-1])
 pyplot.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=0.52)
-pyplot.savefig('fig/Index2.png')
+if os.path.exists("fig"):
+	pyplot.savefig('fig/%s.png' %index2)
 
 f3 = pyplot.figure(3);
 pyplot.subplot(3, 1, 1)
@@ -147,5 +150,6 @@ pyplot.ylabel('Dividend Yield %');
 pyplot.title('Last %i Year Chart of Dividend Yield of %s' %(years3,index3));
 pyplot.text(Date3[-1],DIV3[-1],DIV3[-1])
 pyplot.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=0.52);
-pyplot.savefig('fig/Index3.png')
+if os.path.exists("fig"):
+	pyplot.savefig('fig/%s.png' %index3)
 pyplot.show();
