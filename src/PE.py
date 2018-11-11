@@ -80,69 +80,72 @@ Date3,PE_SMALL,PB3,DIV3 = PE_list(index3,get_LATEST_MARKET_OPEN_DATE(),years3);
 f1 = pyplot.figure(1)
 pyplot.subplot(3, 1, 1)
 pyplot.plot(Date,PE);
-pyplot.xlabel('YEAR');
+#pyplot.xlabel('YEAR');
 pyplot.ylabel('PE');
-pyplot.title('Last 10 Year Chart of Price to Earnings of %s' %index);
+pyplot.title('Last %i Year Chart of Price to Earnings of %s' %(years,index));
 pyplot.text(Date[-1],PE[-1],PE[-1])
 
 pyplot.subplot(3, 1, 2)
 pyplot.plot(Date,PB);
-pyplot.xlabel('YEAR');
+#pyplot.xlabel('YEAR');
 pyplot.ylabel('PB');
-pyplot.title('Last 10 Year Chart of Price to Book Value Per Share of %s' %index);
+pyplot.title('Last %i Year Chart of Price to Book Value Per Share of %s' %(years,index));
 pyplot.text(Date[-1],PB[-1],PB[-1])
 
 pyplot.subplot(3, 1, 3)
 pyplot.plot(Date,Div);
 pyplot.xlabel('YEAR');
 pyplot.ylabel('Dividend Yield %');
-pyplot.title('Last 10 Year Chart of Dividend Yield of %s' %index);
+pyplot.title('Last %i Year Chart of Dividend Yield of %s' %(years,index));
 pyplot.text(Date[-1],Div[-1],Div[-1])
 pyplot.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=0.52)
+pyplot.savefig('fig/Index1.png')
 
 f2 = pyplot.figure(2)
 pyplot.subplot(3, 1, 1)
 pyplot.plot(Date2,PE_MID);
-pyplot.xlabel('YEAR');
+#pyplot.xlabel('YEAR');
 pyplot.ylabel('PE');
-pyplot.title('Last 10 Year Chart of Price to Earnings of %s' %index2);
+pyplot.title('Last %i Year Chart of Price to Earnings of %s' %(years2,index2));
 pyplot.text(Date2[-1],PE_MID[-1],PE_MID[-1])
 
 pyplot.subplot(3, 1, 2)
 pyplot.plot(Date2,PB2);
-pyplot.xlabel('YEAR');
+#pyplot.xlabel('YEAR');
 pyplot.ylabel('PB');
-pyplot.title('Last 10 Year Chart of Price to Book Value Per Share of %s' %index2);
+pyplot.title('Last %i Year Chart of Price to Book Value Per Share of %s' %(years2,index2));
 pyplot.text(Date2[-1],PB2[-1],PB2[-1])
 
 pyplot.subplot(3, 1, 3)
 pyplot.plot(Date2,DIV2);
 pyplot.xlabel('YEAR');
 pyplot.ylabel('Dividend Yield %');
-pyplot.title('Last 10 Year Chart of Dividend Yield of %s' %index2);
+pyplot.title('Last %i Year Chart of Dividend Yield of %s' %(years2,index2));
 pyplot.text(Date2[-1],DIV2[-1],DIV2[-1])
 pyplot.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=0.52)
+pyplot.savefig('fig/Index2.png')
 
 f3 = pyplot.figure(3);
 pyplot.subplot(3, 1, 1)
 pyplot.plot(Date3,PE_SMALL);
-pyplot.xlabel('YEAR');
+#pyplot.xlabel('YEAR');
 pyplot.ylabel('PE');
-pyplot.title('Last 10 Year Chart of Price to Earnings of %s' %index3);
+pyplot.title('Last %i Year Chart of Price to Earnings of %s' %(years3,index3));
 pyplot.text(Date3[-1],PE_SMALL[-1],PE_SMALL[-1])
 
 pyplot.subplot(3, 1, 2)
 pyplot.plot(Date3,PB3);
-pyplot.xlabel('YEAR');
+#pyplot.xlabel('YEAR');
 pyplot.ylabel('PB');
-pyplot.title('Last 10 Year Chart of Price to Book Value Per Share of %s' %index3);
+pyplot.title('Last %i Year Chart of Price to Book Value Per Share of %s' %(years3,index3));
 pyplot.text(Date3[-1],PB3[-1],PB3[-1])
 
 pyplot.subplot(3, 1, 3)
 pyplot.plot(Date3,DIV3);
-pyplot.xlabel('YEAR');
+#pyplot.xlabel('YEAR');
 pyplot.ylabel('Dividend Yield %');
-pyplot.title('Last 10 Year Chart of Dividend Yield of %s' %index3);
+pyplot.title('Last %i Year Chart of Dividend Yield of %s' %(years3,index3));
 pyplot.text(Date3[-1],DIV3[-1],DIV3[-1])
 pyplot.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=0.52);
+pyplot.savefig('fig/Index3.png')
 pyplot.show();
