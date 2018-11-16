@@ -63,17 +63,17 @@ print ("PE, PB and Dividend Yield ratio of NIFTY SMALLCAP 100 is ",PE('NIFTY SMA
 
 
 # HISTORICAL PE, PB and DIV of INDEX1
-index='NIFTY'
+index='NIFTY PRIVATE BANK'
 years=10
 Date,PE,PB,Div = PE_list(index,get_LATEST_MARKET_OPEN_DATE(),years);
 
 # HISTORICAL PE, PB and DIV of INDEX2
-index2='NIFTY MIDCAP 50'
+index2='NIFTY PSU BANK'
 years2=10
 Date2,PE_MID,PB2,DIV2 = PE_list(index2,get_LATEST_MARKET_OPEN_DATE(),years2);
 
 # HISTORICAL PE, PB and DIV of INDEX3
-index3='NIFTY SMALLCAP 100'
+index3='NIFTY ENERGY'
 years3=10
 Date3,PE_SMALL,PB3,DIV3 = PE_list(index3,get_LATEST_MARKET_OPEN_DATE(),years3);
 
