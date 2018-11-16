@@ -71,7 +71,7 @@ def plot_figure(i,Date,years,index,PE,PB,Div):
 	pyplot.plot(Date,PB);
 	#pyplot.xlabel('YEAR');
 	pyplot.ylabel('PB');
-	pyplot.title('Last %i Year Chart of Price to Book Value Per Share of %s on Date -%d/%d/%d' %(years,index,day,mon,year));
+	pyplot.title('Last %i Year Chart of PB of %s on Date -%d/%d/%d' %(years,index,day,mon,year));
 	pyplot.text(Date[-1],PB[-1],PB[-1])
 	
 	pyplot.subplot(3, 1, 3)
@@ -82,6 +82,7 @@ def plot_figure(i,Date,years,index,PE,PB,Div):
 	pyplot.text(Date[-1],Div[-1],Div[-1])
 	pyplot.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=0.52)
 	if os.path.exists("fig"):
+		pyplot.tight_layout()
 		pyplot.savefig('fig/%s.png' %index)
 	
 #TODAY's PE PB DIVIDEND
@@ -96,7 +97,8 @@ years=10
 count=0
 for i in index:
 	count+=1
+	print ("Fetching Data For %s" %i)
 	DATE,PE,PB,DIV = PE_list(i,get_LATEST_MARKET_OPEN_DATE(),years);
 	plot_figure(count,DATE,years,i,PE,PB,DIV)
-	
-pyplot.show();
+print ("All Figures Stored in fig/ folder")	
+#pyplot.show();
